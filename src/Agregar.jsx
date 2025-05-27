@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useState } from 'react'
+import { Mostrar } from './Mostrar'
 
-export const Agregar = ({ alumnos, setAlumnos, agregar_actualizar}) => {
+export const Agregar = ({ alumnos, setAlumnos }) => {
     const [formulario, setFormulario] = useState({
         LU: 0,
         nombre: '',
@@ -40,9 +41,7 @@ export const Agregar = ({ alumnos, setAlumnos, agregar_actualizar}) => {
             estado: true,
         })
     }
-    useEffect(() => {
-        agregar_actualizar(alumnos)
-    }, [])
+    console.log(alumnos)
     return (
         <>
             <h1>Gestion de Alumnos</h1>
