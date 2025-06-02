@@ -41,7 +41,6 @@ export const Agregar = ({ alumnos, setAlumnos }) => {
             estado: true,
         })
     }
-    console.log(alumnos)
     return (
         <>
             <h1>Gestion de Alumnos</h1>
@@ -54,7 +53,6 @@ export const Agregar = ({ alumnos, setAlumnos }) => {
                 <input type="number" name="telefono" placeholder="Telefono" value={formulario.telefono} onChange={handleChange} required />
                 <button type="submit">Agregar Alumno</button>
             </form>
-
         </>
     )
 }
