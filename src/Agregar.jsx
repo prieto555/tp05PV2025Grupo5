@@ -50,7 +50,7 @@ export const Agregar = ({ alumnos, setAlumnos }) => {
                 <input type="text" name="curso" placeholder="Curso" value={formulario.curso} onChange={handleChange} required />
                 <input type="text" name="email" placeholder="Email" value={formulario.email} onChange={handleChange} required />
                 <input type="text" name="domicilio" placeholder="Domicilio" value={formulario.domicilio} onChange={handleChange} required />
-                <input type="number" name="telefono" placeholder="Telefono" value={formulario.telefono} onChange={handleChange} required />
+                <input type="number" name="telefono" min={ 1 } placeholder="Telefono" value={formulario.telefono} onChange={handleChange} required />
                 <button type="submit">Agregar Alumno</button>
             </form>
         </>

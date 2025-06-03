@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import { Eliminar } from './Eliminar';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Modificar } from './Modificar';
 
 export const Mostrar = ({ alumnos, setAlumnos }) => {
     return (
-        <div style={{ overflowX: 'auto' }}>
-            {alumnos.length > 0 ? (
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <div>
+            {alumnos.length > 0 && alumnos.some(alumno => alumno.estado === true)? (
+                <table>
                     <thead>
-                        <tr style={{ backgroundColor: '#f2f2f2' }}>
-                            <th style={thStyle}>Nombre</th>
-                            <th style={thStyle}>Curso</th>
-                            <th style={thStyle}>Email</th>
-                            <th style={thStyle}>Domicilio</th>
-                            <th style={thStyle}>Telefono</th>
+                        <tr>
+                            <th >Nombre</th>
+                            <th >Curso</th>
+                            <th >Email</th>
+                            <th >Domicilio</th>
+                            <th >Telefono</th>
+                            <th >LU</th>
+                            <th >Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -23,15 +24,19 @@ export const Mostrar = ({ alumnos, setAlumnos }) => {
                                 <React.Fragment key={alumno.id || index}>
                                     {alumno.estado === true && (
                                         <tr>
-                                            <td style={tdStyle}>{alumno.nombre}</td>
-                                            <td style={tdStyle}>{alumno.curso}</td>
-                                            <td style={tdStyle}>{alumno.email}</td>
-                                            <td style={tdStyle}>{alumno.domicilio}</td>
-                                            <td style={tdStyle}>{alumno.telefono}</td>
-                                            <td className='td-actions' style={tdStyle}>
-                                                {/*<Eliminar eliminarProducto={eliminarAlumno} id={alumno.id} />*/}
+                                            <td >{alumno.nombre}</td>
+                                            <td >{alumno.curso}</td>
+                                            <td >{alumno.email}</td>
+                                            <td >{alumno.domicilio}</td>
+                                            <td >{alumno.telefono}</td>
+                                            <td >{'APU00' + alumno.LU % 1000}</td>
+                                            <td className='td-actions'>
                                                 <Link to='/modificar'>Modificar</Link>
-                                                <button onClick={() => { alumno.estado = false }}>Eliminar</button>
+                                                <button onClick={() => {
+                                                    const nuevosAlumnos = [...alumnos];
+                                                    nuevosAlumnos[index].estado = false;
+                                                    setAlumnos(nuevosAlumnos);
+                                                }}> Eliminar </button>
                                             </td>
                                         </tr>
                                     )}
@@ -47,18 +52,4 @@ export const Mostrar = ({ alumnos, setAlumnos }) => {
 
         </div>
     );
-};
-
-const thStyle = {
-    border: '1px solid #ddd',
-    padding: '8px',
-    color: "black",
-    textAlign: 'left',
-    fontWeight: 'bold',
-};
-
-const tdStyle = {
-
-    border: '1px solid #ddd',
-    padding: '8px',
 };
