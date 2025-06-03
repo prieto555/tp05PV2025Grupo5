@@ -6,6 +6,7 @@ import { Inicio } from './Inicio'
 import { Routes, Route } from 'react-router'
 import { Menu } from './Menu'
 import { Modificar } from './Modificar'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [count, setCount] = useState(0)

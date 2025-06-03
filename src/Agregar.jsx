@@ -42,17 +42,39 @@ export const Agregar = ({ alumnos, setAlumnos }) => {
         })
     }
     return (
-        <>
-            <h1>Gestion de Alumnos</h1>
-            <form onSubmit={Agregando}>
-                <input type="text" name="nombre" placeholder="Nombre" value={formulario.nombre} onChange={handleChange} required />
-                <input type="text" name="apellido" placeholder="Apellido" value={formulario.apellido} onChange={handleChange} required />
-                <input type="text" name="curso" placeholder="Curso" value={formulario.curso} onChange={handleChange} required />
-                <input type="text" name="email" placeholder="Email" value={formulario.email} onChange={handleChange} required />
-                <input type="text" name="domicilio" placeholder="Domicilio" value={formulario.domicilio} onChange={handleChange} required />
-                <input type="number" name="telefono" min={ 1 } placeholder="Telefono" value={formulario.telefono} onChange={handleChange} required />
-                <button type="submit">Agregar Alumno</button>
-            </form>
-        </>
-    )
-}
+       <div className="container mt-5">
+            <div className="card p-4 shadow-lg">
+                <h1 className="text-center text-primary">Gestión de Alumnos</h1>
+                <form onSubmit={Agregando}>
+                    <div className="mb-3">
+                        <label className="form-label">Nombre</label>
+                        <input type="text" name="nombre" className="form-control" placeholder="Nombre" value={formulario.nombre} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Apellido</label>
+                        <input type="text" name="apellido" className="form-control" placeholder="Apellido" value={formulario.apellido} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Curso</label>
+                        <input type="text" name="curso" className="form-control" placeholder="Curso" value={formulario.curso} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Email</label>
+                        <input type="email" name="email" className="form-control" placeholder="Email" value={formulario.email} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Domicilio</label>
+                        <input type="text" name="domicilio" className="form-control" placeholder="Domicilio" value={formulario.domicilio} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Teléfono</label>
+                        <input type="number" name="telefono" className="form-control" placeholder="Teléfono" value={formulario.telefono} min="1" onChange={handleChange} required />
+                    </div>
+                    <button type="submit" className="btn btn-success w-100">Agregar Alumno</button>
+                </form>
+            </div>
+        </div>
+    );
+};
+
+
